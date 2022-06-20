@@ -21,3 +21,19 @@ class Solution:
                 queue.append(current.right)
         
         return root
+    
+    
+    
+    # OR
+    
+    
+    # Recursively invert
+    # Visits each node once: O(n) time, O(h) space
+    def invertTree(self, root):
+        # Base case:
+        if root is None:
+            return None
+
+        invert = self.invertTree
+        root.left, root.right = invert(root.right), invert(root.left)
+        return root
