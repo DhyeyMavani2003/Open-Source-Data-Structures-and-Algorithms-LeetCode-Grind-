@@ -1,3 +1,5 @@
+# O(N) time and space
+
 class Solution:
     def calculate(self, s: str) -> int:
         stack = [] # store sign and operand of previous expressions
