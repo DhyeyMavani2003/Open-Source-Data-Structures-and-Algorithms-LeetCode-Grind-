@@ -11,6 +11,7 @@ class Solution:
                 ans += " "
                 
         return ans
+    '''
     def reverseWords(self, s: str) -> str:
         s = s.split(" ")                #it splits the string s
         while "" in s:                  #it removes all the spaces from the s
@@ -22,3 +23,4 @@ class Solution:
             j-=1
         s = " ".join(s)                 
         return s
+    '''
