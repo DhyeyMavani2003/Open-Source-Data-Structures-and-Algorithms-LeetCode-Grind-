@@ -21,6 +21,6 @@ class Solution:
                 result[str(sorted(s))].append(s)
             else:
                 result[str(sorted(s))] = [s]
-        print(result.keys())
+        
         return result.values()
         
