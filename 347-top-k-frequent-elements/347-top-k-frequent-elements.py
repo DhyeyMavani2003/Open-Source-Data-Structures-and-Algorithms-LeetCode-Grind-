@@ -1,18 +1,9 @@
 class Solution:
     # Using a Heap
-    '''
     def topKFrequent(self, nums, k):
         if k == len(nums):
             return nums
         count = Counter(nums)
-        return heapq.nlargest(k, count.keys(), key = count.get)
-    '''
-    def topKFrequent(self, nums, k):
-        if k == len(nums):
-            return nums
-        
-        count = Counter(nums)
-        
         topKHeap = []
         for n,f in count.items():
             topKHeap.append((-f, n))
@@ -21,8 +12,7 @@ class Solution:
         res = []
         for _ in range(k):
             negFreq, val = heapq.heappop(topKHeap)
-            res.append(val)
-            
+            res.append(val)  
         return res
     '''
     # Using Bucket Sort Algorithm
