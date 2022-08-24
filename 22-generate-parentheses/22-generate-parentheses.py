@@ -25,7 +25,7 @@ class Solution:
         backtrack(0, 0)
         return res
     
-    '''
+    
     # CodePath solution
     def generateParenthesis(self, n: int) -> List[str]:
         
@@ -44,4 +44,3 @@ class Solution:
         result = []
         recursiveCall(result,"",0,0,n)
         return result
-    '''
