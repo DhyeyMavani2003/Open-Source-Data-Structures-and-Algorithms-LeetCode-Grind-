@@ -3,6 +3,7 @@ class Solution:
         ROWS, COLS = len(matrix), len(matrix[0])
         cache = {}
         
+        # T: O(mn) and M: O(mn)
         def helper(r, c):
             if r >= ROWS or c >= COLS:
                 return 0
