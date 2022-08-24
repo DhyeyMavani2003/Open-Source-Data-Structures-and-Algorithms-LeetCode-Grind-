@@ -1,5 +1,10 @@
 class Solution:
     # Using a Heap
+    def topKFrequent(self, nums, k):
+        if k == len(nums):
+            return nums
+        count = Counter(nums)
+        return heapq.nlargest(k, count.keys(), key = count.get)
     
     # Using Bucket Sort Algorithm
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
