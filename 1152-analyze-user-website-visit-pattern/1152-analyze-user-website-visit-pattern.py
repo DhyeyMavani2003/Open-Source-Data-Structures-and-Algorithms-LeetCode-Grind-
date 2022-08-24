@@ -53,4 +53,37 @@ class Solution:
         scores = sorted(scores.items(), key=lambda y:(-len(y[1]), y[0]))
         
         return list(scores[0][0])
+    
+    def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:
+        dic = defaultdict(list)
+        for i in range(len(username)):
+            dic[username[i]].append((website[i], timestamp[i]))
+        for k, v in dic.items():
+            v.sort(key=lambda x: x[1])
+            new_v = []
+            for web, time in v:
+                new_v.append(web)
+            dic[k] = new_v
+        combs = defaultdict(list)
+        for k, v in dic.items():
+            self.get_all_combinations(v, combs, [], 0, k)
+        max_size = -1
+        for k, v in combs.items():
+            max_size = max(max_size, len(v))
+        max_list = []
+        for k, v in combs.items():
+            if len(v) == max_size and (not max_list or list(k) < max_list):
+                max_list = list(k)
+        return max_list
+        
+    def get_all_combinations(self, website, combs, comb, start, user):
+        if user in combs[tuple(comb)]:
+            return
+        if len(comb) == 3:
+            combs[tuple(comb)].append(user)
+            return
+        for i in range(start, len(website)):
+            comb.append(website[i])
+            self.get_all_combinations(website, combs, comb, i+1, user)
+            comb.pop()
                         
